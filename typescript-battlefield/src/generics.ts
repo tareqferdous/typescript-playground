@@ -1,4 +1,18 @@
-//dynamically generalize: Generic
+// 1. Generic Array 2. Generic Tuple 3. Generic Array of Objects
+
+// =====================================================
+// ✅ Generics in TypeScript :
+// =====================================================
+
+/*
+Generics: TypeScript এ একটি feature যা function, class, interface ইত্যাদিকে
+flexible রাখে। মানে, টাইপ আগে থেকে নির্দিষ্ট না করে ব্যবহারকারীর
+প্রয়োজন অনুযায়ী টাইপ নিতে দেয়।
+*/
+
+/* -----------------------------
+1️. Generic Array
+----------------------------- */
 
 type GenericArray<T> = Array<T>;
 
@@ -24,13 +38,19 @@ const userList: GenericArray<User> = [
   },
 ];
 
-const sqrFunc = (value: number) => {
-  return value * value;
-};
-
-sqrFunc(4);
+/* -----------------------------
+2️. Generic Tuple (Type Alias)
+----------------------------- */
 
 type Coordinates<X, Y> = [X, Y];
 
-const coordinates1: Coordinates<number, number> = [20, 30];
+const coordinates1: Coordinates<string, number> = ["Tareq", 30];
 const coordinates2: Coordinates<string, string> = ["20", "30"];
+
+/*
+Step-by-step summary:
+1. <T> হলো placeholder, মানে "যেকোনো type"
+2. Function/Array/Tuple/Interface এ ব্যবহার করা যায়
+3. Input এবং output একই type হবে
+4. Reusable ও flexible কোড তৈরিতে সহায়ক
+*/
